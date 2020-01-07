@@ -1,10 +1,14 @@
-
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav role="navigation">
-    <app-sidenav-list (closeSidenav)="sidenav.close()"></app-sidenav-list>
+  <mat-sidenav #sidenav>
+    <app-sidenav-list></app-sidenav-list>
+    <div>
+      this is a test
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-    <app-news></app-news>
-    </mat-sidenav-content>
+    <div>
+      <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+      <app-news></app-news>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
