@@ -10,7 +10,15 @@ export class NewsComponent implements OnInit {
 
   mArticles: Array<any>;
 
-  constructor(public newsapi: NewsApiService) { }
+  constructor(public newsapi: NewsApiService) {
+    newsapi
+      .channel.subscribe((channel) => {
+        if (channel !== undefined && channel !== null) {
+          console.log(`channel : ${channel}`);
+          this.newsapi.getArticlesByID(channel).subscribe(data => this.mArticles = data['articles']);
+        }
+      }, error => console.log(`error while getting channel => ${error}`));
+  }
 
   ngOnInit() {
     //load news sources

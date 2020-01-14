@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
 import { NewsApiService } from 'src/app/news-api.service';
 
 @Component({
@@ -8,17 +8,21 @@ import { NewsApiService } from 'src/app/news-api.service';
 })
 export class SidenavListComponent implements OnInit {
 
+  @Output() topicChanged = new EventEmitter<void>();
+
   mSources: Array<any>;
-  mArticles: Array<any>;
   constructor(private newsapi: NewsApiService) { }
 
   ngOnInit() {
     //load news sources
     this.newsapi.initSources().subscribe(data => this.mSources = data['sources']);
   }
+
   searchArticles(source) {
-    console.log("selected source is: " + source);
-    this.newsapi.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
+    if (source !== undefined) {
+      this.newsapi.channel.next(source);
+      this.topicChanged.emit();
+    }
   }
 
 }

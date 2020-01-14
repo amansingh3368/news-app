@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav fixedInViewport="true" [style.marginTop.px]="56">
-    <app-sidenav-list></app-sidenav-list>
+    <app-sidenav-list (topicChanged)="sidenav.toggle()"></app-sidenav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <div>
