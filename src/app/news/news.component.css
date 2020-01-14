@@ -1,5 +1,12 @@
 .example-card{
-    margin-top: 4px;
+    width: 100%;
+
+}
+@media screen and (min-width:700px){
+    .example-card{
+        width: 55%;
+        margin: auto;
+    }
 }
 
 .example-header-image { 

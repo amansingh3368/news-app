@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { NewsComponent } from './news/news.component';
     MatSidenavModule,
     MatListModule,
     HttpClientModule,
+    FlexLayoutModule,
   ],
   providers: [NewsApiService],
   bootstrap: [AppComponent]

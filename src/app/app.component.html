@@ -1,9 +1,6 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav>
+  <mat-sidenav #sidenav fixedInViewport="true" [style.marginTop.px]="56">
     <app-sidenav-list></app-sidenav-list>
-    <div>
-      this is a test
-    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <div>
